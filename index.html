@@ -48,7 +48,7 @@
       <!-- music -->
       <audio id="music" loop="" autoplay="">
         <source
-          src="media/forest-birds-sound-effects-high-quality-no-copyright-ufuibgpounm.mp3"
+          src="media/backsound-undangan.mp3"
         />
       </audio>
       <!-- end music -->
@@ -340,13 +340,13 @@
                               <br /><br />
                               <div
                                 class="animate__animated animate__fadeInDown animate__slower"
-                                style="font-size: 14.4px; line-height: 2;"
+                                style="font-size: 14.4px; line-height: 2"
                               >
                                 Kita akan bareng-bareng menuju ke
                               </div>
                               <div
                                 class="font-weight-bold animate__animated animate__fadeInUp animate__slower"
-                                style="font-size: 14.4px; line-height: 2;"
+                                style="font-size: 14.4px; line-height: 2"
                               >
                                 LEDOK OMBO
                               </div>
@@ -429,7 +429,10 @@
                                 >
                                   Lembah Bromo (Ledok Amprong)
                                 </div>
-                                <div class="mb-3" style="font-size: 14.4px; line-height: 2;">
+                                <div
+                                  class="mb-3"
+                                  style="font-size: 14.4px; line-height: 2"
+                                >
                                   Jl. Coban Pelangi, Gubugklakah,<br />
                                   Kec. Poncokusumo - Kabupaten Malang
                                 </div>
@@ -500,7 +503,7 @@
                             <div class="text-center">
                               <div
                                 class="mb-4 mx-auto animate__animated animate__fadeInUp animate__slower"
-                                style="font-size: 14.4px; line-height: 2;"
+                                style="font-size: 14.4px; line-height: 2"
                               >
                                 Nih, keseruan yg sudah kita lakukan dan akan
                                 kita ulangi di acara Bebrayan Dadi Siji!
@@ -779,21 +782,17 @@
                               <div class="text-center">
                                 <div
                                   class="mb-4 animate__animated animate__fadeInUp animate__slower"
-                                  style="font-size: 14.4px; line-height: 2;"
+                                  style="font-size: 14.4px; line-height: 2"
                                 >
                                   Yuk, kita hitung mundur dan bersiap!<br />Jangan
                                   lupa isi data kehadiran kalian ya rek!
                                 </div>
 
-                                <a
-                                  href="#!"
-                                  target="_blank"
-                                  rel="nofollow noreferrer noopener"
-                                  class="link btn btn-primary mb-4 animate__animated animate__fadeInUp animate__slow"
-                                  style="border-radius: 0.3rem"
+                                <button
+                                  class="btn-rsvp btn btn-primary rounded-pill mb-auto animate__animated animate__fadeInUp animate__slow"
                                 >
-                                  RSVP
-                                </a>
+                                  Konfirmasi Kehadiran
+                                </button>
                               </div>
                             </div>
                           </div>
@@ -858,7 +857,7 @@
                             <div class="text-center">
                               <div
                                 class="mb-3 animate__animated animate__fadeInDown animate__slower"
-                                style="font-size: 14.4px;"
+                                style="font-size: 14.4px"
                               >
                                 Bebrayan Dadi Siji akan berkesan jika kamu ada
                                 kamu di setiap momennya. Jangan sampai
@@ -867,7 +866,7 @@
                               </div>
                               <div
                                 class="font-italic animate__animated animate__fadeInDown animate__slow"
-                                style="font-size: 14.4px;"
+                                style="font-size: 14.4px"
                               >
                                 Sampai bertemu di Bebrayan Dadi Siji!
                               </div>
@@ -1163,6 +1162,86 @@
         </div>
       </div>
       <!-- end lightbox -->
+      <div
+        class="modal fade"
+        id="rsvpModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="rsvpModal"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content p-4" style="height: 100%">
+            <button
+              onclick="closeModal(rsvpModal)"
+              type="button"
+              class="btn btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="42px"
+                width="42px"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18 18 6M6 6l12 12"
+                ></path>
+              </svg>
+            </button>
+
+            <h3 class="text-center mb-4">Konfirmasi Kehadiran</h3>
+            <form id="rsvpForm">
+              <div class="mb-3">
+                <label for="guestName" class="form-label">Nama Lengkap:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="guestName"
+                  name="guestName"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Konfirmasi Kehadiran:</label>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="attendance"
+                    id="willAttend"
+                    value="Hadir"
+                    required
+                  />
+                  <label class="form-check-label" for="willAttend">
+                    Ya, saya akan hadir
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="attendance"
+                    id="cannotAttend"
+                    value="Tidak Hadir"
+                  />
+                  <label class="form-check-label" for="cannotAttend">
+                    Maaf, saya tidak bisa hadir
+                  </label>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary w-100">
+                Kirim RSVP
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
       <div id="waterMark" class="mt-5" style="display: none">
         <div
           class="wm-music mt-3 text-center animate__animated animate__fadeInUp animate__slower animate__delay-1s"
@@ -1191,13 +1270,11 @@
       data-cf-settings="c7bed396c1dab51d543c454e-|49"
       defer=""
     ></script>
-    <script
-      src="https://code.jquery.com/jquery-3.7.1.slim.js"
-      integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc="
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
       $(document).ready(function () {
+        console.log("jQuery document ready function executed."); // Cek ini pertama
+
         // Mengambil seluruh query string dari URL (misalnya "?to=kiki")
         const queryString = window.location.search;
 
@@ -1219,11 +1296,49 @@
             guestNameSlotElement.textContent = "Tamu"; // Default jika parameter 'to' tidak ada
           }
         }
+
+        $("#rsvpForm").on("submit", function (e) {
+          e.preventDefault(); // Mencegah form untuk refresh halaman
+
+          const guestName = $("#guestName").val();
+          const attendance = $('input[name="attendance"]:checked').val();
+
+          if (!guestName || !attendance) {
+            alert("Mohon isi semua kolom yang diperlukan.");
+            return;
+          }
+
+          // Data yang akan dikirim
+          const rsvpData = {
+            nama: guestName,
+            kehadiran: attendance,
+          };
+          console.log(rsvpData);
+
+          // Mengirim data menggunakan AJAX (POST request)
+          $.ajax({
+            url: "#", // <--- GANTI DENGAN URL SCRIPT SERVER ANDA
+            type: "POST",
+            data: rsvpData,
+            success: function (response) {
+              // Handle sukses dari server
+              alert("Terima kasih! RSVP Anda telah terkirim.");
+              $("#rsvpModal").modal("hide"); // Sembunyikan modal
+              $("#rsvpForm")[0].reset(); // Reset form
+              console.log("Server response:", response);
+            },
+            error: function (xhr, status, error) {
+              // Handle error
+              alert("Terjadi kesalahan saat mengirim RSVP. Silakan coba lagi.");
+              console.error("AJAX error:", status, error);
+            },
+          });
+        });
       });
 
       function capitalizeFirstLetter(str) {
         if (!str) {
-          return "";  
+          return "";
         }
         return str
           .split(" ")
