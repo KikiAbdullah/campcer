@@ -52,20 +52,6 @@ var initCoreInvitation = function initCoreInvitation() {
     }
   });
 
-  // tampilkan nama tamu
-  var guestName = kunciKarya.dataset.guest;
-  var guestNameSlot = document.getElementById("guestNameSlot");
-  if (guestName && guestNameSlot) {
-    guestNameSlot.innerHTML = guestName;
-  }
-
-  // tampilkan nama group
-  var groupName = kunciKarya.dataset.group;
-  var groupNameSlot = document.getElementById("groupNameSlot");
-  if (groupName && groupNameSlot) {
-    groupNameSlot.innerHTML = groupName;
-  }
-
   // tampilkan gift
   var showGift = function showGift(index) {
     for (var i = 0; i < btnGift.length; i++) {
