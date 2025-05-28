@@ -1379,7 +1379,11 @@
                   </label>
                 </div>
               </div>
-              <button type="submit" class="btn btn-primary w-100">
+              <button
+                type="submit"
+                onclick="saveRsvp(this, event)"
+                class="btn btn-primary w-100"
+              >
                 Kirim RSVP
               </button>
             </form>
@@ -1428,5 +1432,40 @@
       data-cf-settings="c7bed396c1dab51d543c454e-|49"
       defer=""
     ></script>
+
+    <script>
+      function saveRsvp(button, event) {
+        event.preventDefault(); // Hindari reload halaman
+
+        const form = document.getElementById("rsvpForm");
+        const name = form.guestName.value.trim();
+        const attendance = form.attendance.value;
+
+        if (!name || !attendance) {
+          alert("Mohon lengkapi nama dan pilih kehadiran.");
+          return;
+        }
+
+        const formData = new FormData(form);
+
+        // Contoh kirim data pakai fetch (bisa diganti sesuai backend)
+        fetch("https://script.google.com/macros/s/AKfycbzTL_IWH1Zo-skT6WqGsJbZOzuSKvq6U21p-IVilCZ1uRCmFYwiO9511zT6cBg6xnbpAA/exec", {
+          method: "POST",
+          body: new URLSearchParams({
+            guestName: name,
+            attendance: attendance,
+          }),
+        })
+          .then((response) => response.text())
+          .then((result) => {
+            alert("RSVP berhasil dikirim. Terima kasih!");
+            form.reset();
+          })
+          .catch((error) => {
+            console.error("Gagal mengirim RSVP:", error);
+            alert("Terjadi kesalahan. Coba lagi nanti.");
+          });
+      }
+    </script>
   </body>
 </html>
