@@ -1331,6 +1331,37 @@
       crossorigin="anonymous"
     ></script>
     <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        console.log("Vanilla JS DOMContentLoaded event executed."); // Cek ini pertama
+
+        // Mengambil seluruh query string dari URL (misalnya "?to=kiki")
+        const queryString = window.location.search;
+
+        // Membuat objek URLSearchParams dari query string
+        const urlParams = new URLSearchParams(queryString);
+
+        // Mengambil nilai dari parameter 'to'
+        const nama = urlParams.get("to"); // Ini akan menghasilkan "kiki" jika ada
+
+        // Mengambil elemen HTML dengan ID 'guestNameSlot'
+        const guestNameSlotElement = document.getElementById("guestNameSlot");
+
+        // Memperbarui teks pada elemen 'guestNameSlot'
+        if (guestNameSlotElement) {
+          // Pastikan elemen ditemukan
+          if (nama) {
+            guestNameSlotElement.textContent = capitalizeFirstLetter(nama); // Tampilkan nama jika ditemukan
+          } else {
+            guestNameSlotElement.textContent = "Tamu"; // Default jika parameter 'to' tidak ada
+          }
+        }
+
+        // Fungsi capitalizeFirstLetter (pastikan fungsi ini juga ada di kode Anda)
+        function capitalizeFirstLetter(string) {
+          return string.charAt(0).toUpperCase() + string.slice(1);
+        }
+      });
+      
       function saveRsvp(button, event) {
         event.preventDefault(); // Hindari reload halaman
 
@@ -1369,6 +1400,21 @@
             console.error("Gagal mengirim RSVP:", error);
             alert("Terjadi kesalahan. Coba lagi nanti.");
           });
+      }
+
+      function capitalizeFirstLetter(str) {
+        if (!str) {
+          return "";
+        }
+        return str
+          .split(" ")
+          .map((word) => {
+            if (word.length === 0) {
+              return "";
+            }
+            return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+          })
+          .join(" ");
       }
     </script>
   </body>
