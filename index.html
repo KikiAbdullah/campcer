@@ -1377,13 +1377,13 @@
 
         // Contoh kirim data pakai fetch (bisa diganti sesuai backend)
         fetch(
-          "https://script.google.com/macros/s/AKfycbzTL_IWH1Zo-skT6WqGsJbZOzuSKvq6U21p-IVilCZ1uRCmFYwiO9511zT6cBg6xnbpAA/exec",
+          "https://script.google.com/macros/s/AKfycbxHB_Dm8BPVmI-JnMWt5CBJDtto6vM1TXbwZprP2tDpBNKmkHLHkRPs4Vi5mx9ggNXS1w/exec",
           {
             method: "POST",
             body: new URLSearchParams({
               guestName: name,
               noHp: noHp,
-              alamat: guestAlamat,
+              guestAlamat: guestAlamat,
               attendance: attendance,
             }),
           }
